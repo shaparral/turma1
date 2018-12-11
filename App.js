@@ -1,49 +1,41 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default class App extends React.Component {
-
   constructor(props) {
     super(props);
-    this.state = {
-      result: ''
+    this.state = { 
+      nome: '',
+      idade: ''
     };
-  }
+}
 
+  soma(x, y) {
+    return x + y;
+  }
+ 
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.titleStyle}>Calculadora do Herói</Text>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder='Insira o primeiro valor' 
-          />
-        </View>
-        <View style={styles.inputContainer}>
-          <TextInput
-            placeholder='Insira o segundo valor' 
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button 
-            title="Somar"
-            color="#841584"
-          />
-          <Button
-            title="Subtrair"
-            color="#841584" 
-          />
-          <Button
-            title="Multiplicar"
-            color="#841584" 
-          />
-          <Button
-            title="Dividir"
-            color="#841584" 
-          />
-        </View>
-        <Text>O resultado é:</Text>
-        <Text>{this.state.result}</Text>
+      <TextInput
+        style={{height: 100, borderColor: 'gray', 
+        borderWidth: 1, 
+        width: '100%', fontSize: 40}}
+        placeholder='Digite seu nome:'
+        onChangeText={(nome) => this.setState({nome})}
+        value={this.state.nome}
+      />
+        <Text style={{ fontSize: 30 }}>
+        {`Nome: ${this.state.nome}`}
+        </Text>
+        <TextInput
+        style={{height: 100, borderColor: 'gray', borderWidth: 1, width: '100%', fontSize: 40}}
+        placeholder='Digite sua idade:'
+        onChangeText={(idade) => this.setState({idade})}
+        value={this.state.idade}
+      />
+      <Text style={{ fontSize: 30 }}>{`Idade: ${this.state.idade}`}</Text>
+
       </View>
     );
   }
@@ -52,20 +44,8 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#9f3716',
+    backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
-  titleStyle: {
-    color: 'white',
-    fontSize: 20
-  },
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between'
-  },
-  buttonContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly'
-  }
 });
