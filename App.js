@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, TextInput, Button, Alert } from 'react-native';
-import { isUndefined } from 'util';
 
 export default class App extends React.Component {
   constructor(props) {
